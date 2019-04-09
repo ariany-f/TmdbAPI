@@ -1,0 +1,19 @@
+Authorization: 3ac8b0ff30a13afd836819707defc205
+POST https://homologapis.digi5.com.br/event/moip/signatures
+POST https://api.digi5.com.br/hospitalization/v1/moipwebhook
+
+{
+   "event": "invoice.created",
+   "date": "01/01/2013 00:00:00",
+   "env": "sandbox",
+   "resource": {
+       "id": 13, //ID da fatura
+       "subscription_code": "assinatura01",
+       "amount": 101,
+       "occurrence": 1,
+       "status": {
+           "code": 1,
+           "description": "Em aberto"
+       }
+   }
+}

@@ -1,0 +1,25 @@
+POST https://apis.digi5.org/helper/registration/occupation
+{
+   "termo": "pre de ti"
+}
+
+{
+    "request_id": "3688167ff99b48d4c817385c12e074d7",
+    "message": "Lista de ocupações",
+    "code": 200,
+    "success": true,
+    "data": {
+        "count": 2,
+        "result": [
+            {
+                "id": "1828",
+                "name": "Presidente da república"
+            },
+            {
+                "id": "2581",
+                "name": "Vice-presidente da república"
+            }
+        ],
+        "errors": []
+    }
+}

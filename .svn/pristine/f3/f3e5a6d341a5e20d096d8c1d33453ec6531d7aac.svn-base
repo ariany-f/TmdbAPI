@@ -1,0 +1,256 @@
+{
+   "event":"invoice.update",
+   "order":{
+      "id":24,
+      "company_id":2,
+      "external_code":"156",
+      "value":36.5,
+      "beginning":"2018-09-18T00:00:00+00:00",
+      "expiration":"2019-09-18T00:00:00+00:00",
+      "due_monthly":"2018-10-18T00:00:00+00:00",
+      "customer":{
+         "id":1,
+         "name":"Yanna Ferreira",
+         "mail":[
+            {
+               "mail_types_id":"1",
+               "mail_types_name":"Pessoal",
+               "mail_id":"1",
+               "mail_mail":"90294251057@vidaclass.com.br",
+               "mail_status_id":"2",
+               "mail_status_name":"Ativo",
+               "created":"2018-09-17 18:38:59"
+            }
+         ],
+         "cpf":"90294251057",
+         "estimated_assets":0,
+         "monthly_income":0,
+         "politycal_exposure":"0",
+         "phone":[
+            {
+               "phone_type_id":"1",
+               "phone_type_name":"Celular",
+               "phone_id":"1",
+               "phone_number":"11845788445",
+               "phone_status_id":"2",
+               "phone_status_name":"Ativo",
+               "created":"2018-09-17 18:39:00"
+            }
+         ],
+         "birth":"1975-08-16T00:00:00+00:00",
+         "document":[
+            {
+               "document_type_id":"2",
+               "document_type_name":"Passaporte",
+               "document_emitter_id":"1",
+               "document_emitter_name":"OUTROS",
+               "document_number":"A4V4B5F7R",
+               "document_issue_date":"2018-08-23",
+               "document_status_id":"2",
+               "document_status_name":"Ativo",
+               "created":"2018-09-17 18:39:02"
+            },
+            {
+               "document_type_id":"1",
+               "document_type_name":"RG",
+               "document_emitter_id":"1",
+               "document_emitter_name":"OUTROS",
+               "document_number":"4457787441",
+               "document_issue_date":"2018-02-10",
+               "document_status_id":"2",
+               "document_status_name":"Ativo",
+               "created":"2018-09-17 18:39:01"
+            }
+         ],
+         "gender":"F",
+         "occupation":{
+            "id":"1",
+            "name":"Abatedor"
+         },
+         "marital":{
+            "id":"1",
+            "name":"Casado"
+         },
+         "addresses":[
+            {
+               "address_types_id":"1",
+               "address_types_name":"Residencial",
+               "address_id":"1",
+               "address_public_place":"Rua Padre Jos\u00e9 Manuel",
+               "address_number":"114",
+               "address_complement":"",
+               "address_neighborhood":"Cerqueira C\u00e9sar",
+               "address_city":"S\u00e3o Paulo",
+               "address_state":"SP",
+               "address_country":"BRA",
+               "address_zip":"01411001",
+               "address_lat":null,
+               "address_lng":null,
+               "address_status_id":"2",
+               "address_status_name":"Ativo",
+               "created":"2018-09-17 18:39:04"
+            }
+         ],
+         "status":{
+            "id":"34",
+            "name":"Ativo"
+         },
+         "created":"2018-09-17T18:38:57-03:00"
+      },
+      "itens":[
+         {
+            "id":1,
+            "marca_id":"1",
+            "marca_name":"Mapfre Seguros",
+            "type_id":"1",
+            "type_name":"Seguro Interna\u00e7\u00e3o",
+            "product_id":"1",
+            "product_name":"Vida Class Interna\u00e7\u00e3o Ideal",
+            "qtd":1,
+            "value_uni":36.5,
+            "value_total":36.5,
+            "police":[
+               {
+                  "id":1,
+                  "police":"302000",
+                  "customer":{
+                     "id":1,
+                     "name":"Yanna Ferreira",
+                     "mail":[
+                        {
+                           "mail_types_id":"1",
+                           "mail_types_name":"Pessoal",
+                           "mail_id":"1",
+                           "mail_mail":"90294251057@vidaclass.com.br",
+                           "mail_status_id":"2",
+                           "mail_status_name":"Ativo",
+                           "created":"2018-09-17 18:38:59"
+                        }
+                     ],
+                     "cpf":"90294251057",
+                     "estimated_assets":0,
+                     "monthly_income":0,
+                     "politycal_exposure":"0",
+                     "phone":[
+                        {
+                           "phone_type_id":"1",
+                           "phone_type_name":"Celular",
+                           "phone_id":"1",
+                           "phone_number":"11845788445",
+                           "phone_status_id":"2",
+                           "phone_status_name":"Ativo",
+                           "created":"2018-09-17 18:39:00"
+                        }
+                     ],
+                     "birth":"1975-08-16T00:00:00+00:00",
+                     "document":[
+                        {
+                           "document_type_id":"2",
+                           "document_type_name":"Passaporte",
+                           "document_emitter_id":"1",
+                           "document_emitter_name":"OUTROS",
+                           "document_number":"A4V4B5F7R",
+                           "document_issue_date":"2018-08-23",
+                           "document_status_id":"2",
+                           "document_status_name":"Ativo",
+                           "created":"2018-09-17 18:39:02"
+                        },
+                        {
+                           "document_type_id":"1",
+                           "document_type_name":"RG",
+                           "document_emitter_id":"1",
+                           "document_emitter_name":"OUTROS",
+                           "document_number":"4457787441",
+                           "document_issue_date":"2018-02-10",
+                           "document_status_id":"2",
+                           "document_status_name":"Ativo",
+                           "created":"2018-09-17 18:39:01"
+                        }
+                     ],
+                     "gender":"F",
+                     "occupation":{
+                        "id":"1",
+                        "name":"Abatedor"
+                     },
+                     "marital":{
+                        "id":"1",
+                        "name":"Casado"
+                     },
+                     "addresses":[
+                        {
+                           "address_types_id":"1",
+                           "address_types_name":"Residencial",
+                           "address_id":"1",
+                           "address_public_place":"Rua Padre Jos\u00e9 Manuel",
+                           "address_number":"114",
+                           "address_complement":"",
+                           "address_neighborhood":"Cerqueira C\u00e9sar",
+                           "address_city":"S\u00e3o Paulo",
+                           "address_state":"SP",
+                           "address_country":"BRA",
+                           "address_zip":"01411001",
+                           "address_lat":null,
+                           "address_lng":null,
+                           "address_status_id":"2",
+                           "address_status_name":"Ativo",
+                           "created":"2018-09-17 18:39:04"
+                        }
+                     ],
+                     "status":{
+                        "id":"34",
+                        "name":"Ativo"
+                     },
+                     "created":"2018-09-17T18:38:57-03:00"
+                  },
+                  "status":{
+                     "id":"2",
+                     "name":"Ativo"
+                  },
+                  "created":"2018-09-18T17:03:55-03:00"
+               }
+            ]
+         }
+      ],
+      "credit_card_active":"1",
+      "gateway_id":"2",
+      "credit_card":{
+         "id":"1",
+         "brand":"MasterCard",
+         "name":"Marca Cartao",
+         "number":"5555666677778884",
+         "expire_month":"12",
+         "expire_year":"2022"
+      },
+      "payment":{
+         "10689702":[
+            {
+               "id":1,
+               "invoice_id":"10689702",
+               "payment_code":"19185491",
+               "installments":1,
+               "value":36.5,
+               "paid":true,
+               "paid_date":"2018-09-18T17:03:44-03:00",
+               "status_id":"1",
+               "status_name":"Pago",
+               "created":"2018-09-17T18:39:13-03:00",
+               "updated":"2018-09-18T17:03:44-03:00",
+               "credit_card":{
+                  "id":"1",
+                  "brand_view":"MasterCard",
+                  "brand":"mastercard",
+                  "holder_name":"Marca Cartao",
+                  "number":"5555666677778884",
+                  "expire_month":"12",
+                  "expire_year":"2022",
+                  "status_id":"2",
+                  "status_name":"Ativo"
+               }
+            }
+         ]
+      },
+      "status_id":"4",
+      "status_name":"Pagamento autorizado",
+      "created":"2018-09-17T18:38:17-03:00"
+   }
+}
