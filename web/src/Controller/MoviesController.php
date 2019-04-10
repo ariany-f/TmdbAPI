@@ -22,9 +22,9 @@ class MoviesController extends AppController
 
     /**
      * Lista os filmes disponiveis
-     * @param $limit
+     * @param $page
      */
-    public function upcoming($limit = null)
+    public function upcoming($page = 1)
     {
         /**
          * Post json decode
@@ -35,7 +35,7 @@ class MoviesController extends AppController
             $this->request_id = $post['request_id'];
         }
 
-        $result = $this->Tmdb->getUpcoming();
+        $result = $this->Tmdb->getUpcoming($page);
 
         $this->message = 'Filmes';
         $this->code = 200;
