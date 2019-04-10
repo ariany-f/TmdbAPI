@@ -37,7 +37,7 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->getUpcoming($page);
         
-        $this->message = 'Filmes';
+        $this->message = 'Lista de Filmes';
         $this->code = 200;
         $this->success = true;
         $this->data = $result;
@@ -62,7 +62,32 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->search($query);
         
-        $this->message = 'Filmes';
+        $this->message = 'Buscar Filmes';
+        $this->code = 200;
+        $this->success = true;
+        $this->data = $result;
+        $this->generateOutput();
+    }
+
+     /**
+     * Requisitar detalhes do Filme
+     * @param null $id
+     * @throws \Exception
+     */
+    public function detail($id = null)
+    {
+       /**
+         * Post json decode
+         */
+        $post = $this->request->input('json_decode', true);
+        if(isset($post['request_id']))
+        {
+            $this->request_id = $post['request_id'];
+        }
+
+        $result = $this->Tmdb->detail($id);
+        
+        $this->message = 'Detalhes do Filme';
         $this->code = 200;
         $this->success = true;
         $this->data = $result;

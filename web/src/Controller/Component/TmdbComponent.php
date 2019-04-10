@@ -206,4 +206,31 @@ class TmdbComponent extends Component
 
         return $response;
     }
+
+    /**
+     * Retorna detalhes do filme
+     * O parametro a pesquisar será o $id
+     * @param String $id
+     * @return mixed boolean|array
+     */
+    public function detail($id)
+    {
+        $output = [
+            'data' => [],
+            'error' => [
+                12 => 'Serviço com falha, contate o administrador'
+            ]
+        ];
+        
+        $parameters =  [
+            'method' => 'GET',
+            'endpoint' => 'movie/'.$id,
+            'vars' => []
+        ];
+
+        $this->sendRequest($parameters);
+        $response = $this->responseTmdb;
+
+        return $response;
+    }
 }
