@@ -14,12 +14,12 @@
  */
 $output = array(
     'request_id' => md5(date('YmdHis')),
-    'message' => 'Apis Digi5',
+    'message' => 'Api Tmdb',
     'code' => 403,
     'success' => false,
     'data' => [
         'count' => 1,
-        'result' => 'Para utilização entre em contato conosco através do telefone 11 9 7599 3627 ou webmaster@digi5.com.br',
+        'result' => 'Para utilização contate o administrador',
         'errors' => []
     ]
 );

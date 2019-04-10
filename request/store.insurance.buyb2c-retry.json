@@ -1,5 +1,0 @@
-POST https://apis.digi5.org/store/insurance/buyb2c-retry
-{
-	"request_id": "8e05a1fd6d9f249944bdc5fa726f57af",
-	"order_id": 156
-}

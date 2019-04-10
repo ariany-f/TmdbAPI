@@ -36,13 +36,13 @@ class AuthController extends AppController
      */
     public function index()
     {
-        $this->message = 'Apis Digi5';
+        $this->message = 'Api Tmdb';
         $this->code = 200;
         $this->success = true;
         $this->data = [
             'count' => 1,
             'result' => [
-               'Para utilização entre em contato conosco através do telefone 11 9 7599 3627 ou webmaster@digi5.com.br'
+               'Para utilização contate o administrador'
             ],
             'erros' => [
 
@@ -56,13 +56,13 @@ class AuthController extends AppController
      */
     public function view()
     {
-        $this->message = 'Apis Digi5';
+        $this->message = 'Api Tmdb';
         $this->code = 200;
         $this->success = true;
         $this->data = [
             'count' => 1,
             'result' => [
-                'Para utilização entre em contato conosco através do telefone 11 9 7599 3627 ou webmaster@digi5.com.br'
+                'Para utilização contate o administrador'
             ],
             'erros' => [
                 //

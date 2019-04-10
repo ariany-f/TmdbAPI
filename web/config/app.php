@@ -274,13 +274,13 @@ return [
     'Email' => [
         'default' => [
             'transport' => 'default',
-            'from' => 'apis@digi5.com.br',
+            'from' => 'ariany_f@hotmail.com',
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
         ],
         'debug' => [
             'transport' => 'default',
-            'from' => 'apis@vidaclass.com.br',
+            'from' => 'ariany_f@hotmail.com',
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
         ],

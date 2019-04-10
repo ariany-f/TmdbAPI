@@ -4,9 +4,8 @@
  *
  * @acesso		public
  * @package       Cake.Controller.Component
- * @autor		Anderson Carlos (anderson.carlos@tecnoprog.com.br)
- * @copyright	Copyright (c) 2015, Vida Class (http://www.vidaclass.com.br)
- * @criado		2015-11-20
+ * @autor		Ariany Ferreira (ariany_f@hotmail.com)
+ * @criado		2019-04-09
  * @versão      1.0
  *
  */

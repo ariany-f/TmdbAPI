@@ -5,9 +5,8 @@
  *
  * @acesso		public
  * @package		Novo site
- * @autor		Anderson Carlos (anderson.carlos@tecnoprog.com.br)
- * @copyright	Copyright (c) 2018, Vida Class (http://www.digi5.com.br)
- * @criado		2018-08-17
+ * @autor		Ariany Ferreira (ariany_f@hotmail.com)
+ * @criado		2019-04-09
  * @versão      1.0
  * @var         $this Component
  * @return      Array

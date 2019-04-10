@@ -46,10 +46,10 @@ class MoviesController extends AppController
 
     /**
      * Procurar por titulo
-     * @param null $limit
+     * @param null $page
      * @throws \Exception
      */
-    public function search($limit = null, $id = null)
+    public function search($page = null, $id = null)
     {
         /**
          * Post json decode
