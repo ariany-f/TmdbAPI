@@ -46,12 +46,12 @@ class MoviesController extends AppController
 
     /**
      * Procurar por titulo
-     * @param null $page
+     * @param null $query
      * @throws \Exception
      */
-    public function search($page = null, $id = null)
+    public function search($query = null)
     {
-        /**
+       /**
          * Post json decode
          */
         $post = $this->request->input('json_decode', true);
@@ -60,50 +60,12 @@ class MoviesController extends AppController
             $this->request_id = $post['request_id'];
         }
 
-        switch ($limit)
-        {
-            /**
-             * Venda empresa cliente
-             */
-            case 'buyb2c':
-                /**
-                 *  Instancia Order correspondente
-                 */
-                $order = new OrderBuyb2cController();
-
-                /**
-                 * Acao determinada pelo method
-                 */
-                switch ($this->request->getMethod())
-                {
-                    case 'POST':
-                        $order->add($post);
-                    break;
-
-                    case 'DELETE':
-                        $order->delete($post);
-                    break;
-
-                    case 'PUT':
-                        $order->edit($post);
-                    break;
-
-                    case 'VIEW':
-                        $order->view($post, $id);
-                        break;
-
-                    default:
-                        $this->methodNotPermitted();
-                }
-            break;
-
-            default;
-                $this->endPointActionNotExists($action);
-        }
-
-        /**
-         * Saida com erro
-         */
+        $result = $this->Tmdb->search($query);
+        
+        $this->message = 'Filmes';
+        $this->code = 200;
+        $this->success = true;
+        $this->data = $result;
         $this->generateOutput();
     }
 }
