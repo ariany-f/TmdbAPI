@@ -152,7 +152,7 @@ class TmdbComponent extends Component
      * @return array
      * @throws \Exception
      */
-    public function getUpcoming()
+    public function getUpcoming($page = 1)
     {
         $output = [
             'data' => [],
@@ -168,7 +168,7 @@ class TmdbComponent extends Component
             'method' => 'GET',
             'endpoint' => 'movie/upcoming',
             'vars' => [
-                'page' => 1
+                'page' => $page
             ]
         ];
 

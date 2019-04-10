@@ -32,6 +32,7 @@ class ServiceAuthenticate extends BaseAuthenticate
     {
         $password = $request->getData('username') . $request->getData('password');
         $password = Security::hash($password, 'md5', true);
+        
         $users = TableRegistry::getTableLocator()->get('ApisUsers');
         $query = $users
             ->find()
