@@ -1,5 +1,6 @@
 {
     "require" : {
-        "ext-intl" : "*"
+        "ext-intl" : "*",
+        "ext-mbstring" : "*"
     }
 }
