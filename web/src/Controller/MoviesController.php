@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 use App\Controller\Component\TmdbComponent;
-
+use Cake\Event\Event;
 
 /**
  * Movies Controller
