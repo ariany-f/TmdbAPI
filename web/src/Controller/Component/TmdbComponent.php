@@ -122,7 +122,7 @@ class TmdbComponent extends Component
          * Caso ocorra algum erro na comunicacao
          */
         $error = [
-            0 => 'Gateway Tmdb indisponível, tente novamente'
+            0 => 'Tmdb indisponível, tente novamente'
         ];
 
 
