@@ -1,7 +1,0 @@
-POST https://apis.digi5.org/auth
-{
-	"request_id": "8e05a1fd6d9f249944bdc5fa726f57af",
-	"company_id": 2,
-	"username": "ti@vidaclass.com.br",
-	"password": "AgoraVai201809"
-}
