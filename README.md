@@ -4,9 +4,6 @@ WebApp for cinephiles and movie hobbyists, at this app, the user can see a list 
 ## Motivation
 Challenge from ArcTouch
 
-## Screenshots
-Include logo/demo screenshot etc.
-
 ## Tech/framework used
 
 <b>Built with</b>
@@ -16,9 +13,6 @@ Include logo/demo screenshot etc.
 
 ## Features
 List of upcoming movies from imdb
-
-## Installation
-Provide step by step series of examples and explanations about how to get a development env running.
 
 ## API Reference
 
