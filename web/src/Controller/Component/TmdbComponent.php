@@ -197,7 +197,8 @@ class TmdbComponent extends Component
          */
         $parameters =  [
             'method' => 'GET',
-            'endpoint' => 'genre/movie/list'
+            'endpoint' => 'genre/movie/list',
+            'vars' => []
         ];
 
         $this->sendRequest($parameters);
