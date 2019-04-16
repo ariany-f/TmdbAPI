@@ -178,6 +178,34 @@ class TmdbComponent extends Component
         return $response;
     }
 
+     /**
+     * Pegar todos os gêneros disponíveis
+     * @return array
+     * @throws \Exception
+     */
+    public function getGenres()
+    {
+        $output = [
+            'data' => [],
+            'error' => [
+                12 => 'Serviço com falha, contate o administrador'
+            ]
+        ];
+
+        /**
+         * Converte params para metodo Tmdb
+         */
+        $parameters =  [
+            'method' => 'GET',
+            'endpoint' => 'genre/movie/list'
+        ];
+
+        $this->sendRequest($parameters);
+        $response = $this->responseTmdb;
+
+        return $response;
+    }
+
     /**
      * Retorna filmes encontrados
      * O parametro a pesquisar será o $query

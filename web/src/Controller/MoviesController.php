@@ -36,6 +36,7 @@ class MoviesController extends AppController
         }
 
         $result = $this->Tmdb->getUpcoming($page);
+        $result['genres'] = $this->Tmdb->getGenres();
         
         $this->message = 'Lista de Filmes';
         $this->code = 200;
