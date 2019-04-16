@@ -62,7 +62,6 @@ class MoviesController extends AppController
         }
 
         $result = $this->Tmdb->search($query);
-        $result['genres'] = $this->Tmdb->getGenres()['genres'];
         
         $this->message = 'Buscar Filmes';
         $this->code = 200;
@@ -88,7 +87,6 @@ class MoviesController extends AppController
         }
 
         $result = $this->Tmdb->detail($id);
-        $result['genres'] = $this->Tmdb->getGenres()['genres'];
         
         $this->message = 'Detalhes do Filme';
         $this->code = 200;
