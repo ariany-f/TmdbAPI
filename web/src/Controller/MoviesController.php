@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 use App\Controller\Component\TmdbComponent;
-
+use Cake\Event\Event;
 
 /**
  * Movies Controller
@@ -36,8 +36,8 @@ class MoviesController extends AppController
         }
 
         $result = $this->Tmdb->getUpcoming($page);
-
-        $this->message = 'Filmes';
+        
+        $this->message = 'Lista de Filmes';
         $this->code = 200;
         $this->success = true;
         $this->data = $result;
@@ -46,12 +46,12 @@ class MoviesController extends AppController
 
     /**
      * Procurar por titulo
-     * @param null $page
+     * @param null $query
      * @throws \Exception
      */
-    public function search($page = null, $id = null)
+    public function search($query = null)
     {
-        /**
+       /**
          * Post json decode
          */
         $post = $this->request->input('json_decode', true);
@@ -60,50 +60,37 @@ class MoviesController extends AppController
             $this->request_id = $post['request_id'];
         }
 
-        switch ($limit)
+        $result = $this->Tmdb->search($query);
+        
+        $this->message = 'Buscar Filmes';
+        $this->code = 200;
+        $this->success = true;
+        $this->data = $result;
+        $this->generateOutput();
+    }
+
+     /**
+     * Requisitar detalhes do Filme
+     * @param null $id
+     * @throws \Exception
+     */
+    public function detail($id = null)
+    {
+       /**
+         * Post json decode
+         */
+        $post = $this->request->input('json_decode', true);
+        if(isset($post['request_id']))
         {
-            /**
-             * Venda empresa cliente
-             */
-            case 'buyb2c':
-                /**
-                 *  Instancia Order correspondente
-                 */
-                $order = new OrderBuyb2cController();
-
-                /**
-                 * Acao determinada pelo method
-                 */
-                switch ($this->request->getMethod())
-                {
-                    case 'POST':
-                        $order->add($post);
-                    break;
-
-                    case 'DELETE':
-                        $order->delete($post);
-                    break;
-
-                    case 'PUT':
-                        $order->edit($post);
-                    break;
-
-                    case 'VIEW':
-                        $order->view($post, $id);
-                        break;
-
-                    default:
-                        $this->methodNotPermitted();
-                }
-            break;
-
-            default;
-                $this->endPointActionNotExists($action);
+            $this->request_id = $post['request_id'];
         }
 
-        /**
-         * Saida com erro
-         */
+        $result = $this->Tmdb->detail($id);
+        
+        $this->message = 'Detalhes do Filme';
+        $this->code = 200;
+        $this->success = true;
+        $this->data = $result;
         $this->generateOutput();
     }
 }
