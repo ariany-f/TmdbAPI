@@ -114,10 +114,11 @@ class AppController extends Controller
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
+
         if ($this->request->is('options')) {
             $this->setCorsHeaders();
-            return $this->response;
         }
+        
         if(in_array($this->request->getParam('action'), $this->Auth->allowedActions))
         {
             return;
