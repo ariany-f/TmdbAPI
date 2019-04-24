@@ -114,11 +114,10 @@ class AppController extends Controller
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->response->header('Access-Control-Allow-Origin','*');
-        $this->response->header('Access-Control-Allow-Methods','*');
-        $this->response->header('Access-Control-Allow-Headers','X-Requested-With');
-        $this->response->header('Access-Control-Allow-Headers','Content-Type, x-xsrf-token');
-        $this->response->header('Access-Control-Max-Age','172800');
+        if ($this->request->is('options')) {
+            $this->setCorsHeaders();
+            return $this->response;
+        }
         if(in_array($this->request->getParam('action'), $this->Auth->allowedActions))
         {
             return;
@@ -129,6 +128,17 @@ class AppController extends Controller
             $this->generateOutput();
         }
     }
+    
+    private function setCorsHeaders() {
+        $this->response->cors($this->request)
+            ->allowOrigin(['*'])
+            ->allowMethods(['*'])
+            ->allowHeaders(['x-xsrf-token', 'Origin', 'Content-Type', 'X-Auth-Token'])
+            ->allowCredentials(['true'])
+            ->exposeHeaders(['Link'])
+            ->maxAge(300)
+            ->build();
+    }
 
     /**
      * Before render callback.
@@ -138,6 +148,8 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
+        $this->setCorsHeaders();
+        
         $this->request_id = md5(date('YmdHis') . $this->Auth->user('id'));
 
         if (!array_key_exists('_serialize', $this->viewVars) && in_array($this->response->getType(), ['application/json', 'application/xml']))

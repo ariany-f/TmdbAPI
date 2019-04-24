@@ -199,7 +199,6 @@ Type::build('timestamp')
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
 
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: Content-Type");
 header('Access-Control-Allow-Methods: POST, GET, PUT, PATCH, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: *');
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
