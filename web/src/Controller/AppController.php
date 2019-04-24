@@ -114,11 +114,6 @@ class AppController extends Controller
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-
-        if ($this->request->is('options')) {
-            $this->setCorsHeaders();
-        }
-        
         if(in_array($this->request->getParam('action'), $this->Auth->allowedActions))
         {
             return;
@@ -129,17 +124,6 @@ class AppController extends Controller
             $this->generateOutput();
         }
     }
-    
-    private function setCorsHeaders() {
-        $this->response->cors($this->request)
-            ->allowOrigin(['*'])
-            ->allowMethods(['*'])
-            ->allowHeaders(['x-xsrf-token', 'Origin', 'Content-Type', 'X-Auth-Token'])
-            ->allowCredentials(['true'])
-            ->exposeHeaders(['Link'])
-            ->maxAge(300)
-            ->build();
-    }
 
     /**
      * Before render callback.
@@ -149,8 +133,6 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
-        $this->setCorsHeaders();
-        
         $this->request_id = md5(date('YmdHis') . $this->Auth->user('id'));
 
         if (!array_key_exists('_serialize', $this->viewVars) && in_array($this->response->getType(), ['application/json', 'application/xml']))
