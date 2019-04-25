@@ -1,6 +1,7 @@
 {
     "require" : {
         "ext-intl" : "*",
-        "ext-mbstring" : "*"
+        "ext-mbstring" : "*",
+        "ozee31/cakephp-cors": "^1.1"
     }
 }

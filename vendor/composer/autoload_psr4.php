@@ -6,4 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Zend\\Diactoros\\' => array($vendorDir . '/zendframework/zend-diactoros/src'),
+    'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'Cors\\' => array($vendorDir . '/ozee31/cakephp-cors/src'),
+    'Cake\\Chronos\\' => array($vendorDir . '/cakephp/chronos/src'),
+    'Cake\\' => array($vendorDir . '/cakephp/cakephp/src'),
+    'Aura\\Intl\\' => array($vendorDir . '/aura/intl/src'),
 );
