@@ -15,9 +15,7 @@
 
 namespace App\Controller;
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, GET, PUT, PATCH, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Headers: Content-Type');
 
 use Cake\Core\Configure;
 use Cake\Utility\Security;
