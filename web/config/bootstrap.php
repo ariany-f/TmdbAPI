@@ -57,12 +57,6 @@ use Cake\Utility\Security;
 //         ->toServer();
 // }
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Accept');
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    exit(0);
-}
 /*
  * Read configuration file and inject configuration into various
  * CakePHP classes.
@@ -71,6 +65,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
  * idea to create multiple configuration files, and separate the configuration
  * that changes from configuration that does not. This makes deployment simpler.
  */
+
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, PUT, PATCH, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: *');
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    exit(0);
+}
+
 try {
     Configure::config('default', new PhpConfig());
     Configure::load('app', 'default', false);
