@@ -125,6 +125,10 @@ return [
         //'timestamp' => true,
     ],
 
+    'Cors' => [
+        'exceptionRenderer' => false
+    ],
+
     /**
      * Configure the cache adapters.
      */
