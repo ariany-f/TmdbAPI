@@ -35,18 +35,93 @@ class AuthController extends AppController
      */
     public function index()
     {
-        $this->message = 'Api Tmdb';
-        $this->code = 200;
-        $this->success = true;
-        $this->data = [
-            'count' => 1,
-            'result' => [
-               'Para utilizaçãos contate o administrador'
-            ],
-            'erros' => [
+        $post = $this->request->input('json_decode', true);
+        if(!$post)
+        {
+            $this->message = 'Post inválido';
+            $this->data = [
+                'count' => 0,
+                'result' => [
+                    //
+                ],
+                'erros' => [
+                    'Verifique os parâmetros necessários para a requisição'
+                ]
+            ];
+            $this->generateOutput();
+        }
 
-            ]
-        ];
+        if(isset($post['request_id']))
+        {
+            $this->request_id = $post['request_id'];
+        }
+
+        $requestFields = array("username", "password");
+        foreach($requestFields as $row)
+        {
+            $post[$row] = $this->checkFieldRequest($post, $row, true);
+        }
+
+        if ($this->request->is('post'))
+        {
+            $user = $this->Auth->identify();
+
+            if ($user)
+            {
+                $this->Auth->setUser($user);
+                $token = Security::hash($post['username'] . $post['password'] . $this->Auth->user('id') . time(), 'md5', true);
+                $expire = date('Y-m-d H:i:s', time() + Configure::read('expire'));
+
+                $users = TableRegistry::get('ApisUsers');
+                $query = $users->query();
+                $query->update()
+                    ->set(['token' => $token])
+                    ->set(['expire' => $expire])
+                    ->where(['id' => $this->Auth->user('id')])
+                    ->execute();
+
+                if ($query)
+                {
+                    $this->success = true;
+                    $this->message = 'Autenticado com sucesso';
+                    $this->code = 200;
+                    $this->data = [
+                        'count' => 1,
+                        'result' => [
+                            'user_id' => $this->Auth->user('id'),
+                            'token' => $token,
+                            'expire' => $expire
+                        ],
+                        'errors' => [
+                            //
+                        ]
+                    ];
+                }
+                else
+                {
+                    $this->mailDebug([
+                        'subject' => 'Apis Auth - Falha ao criar token',
+                        'error' => 'Falha ao criar token',
+                    ]);
+
+                    $this->message = 'Falha ao criar token, contate o administrador';
+                    $this->data = [
+                        'count' => 0,
+                        'result' => [],
+                        'errors' => ['Falha ao criar token, contate o administrador']
+                    ];
+                }
+            }
+            else
+            {
+                $this->message = 'Usuario ou senha inválido';
+                $this->data = [
+                    'count' => 0,
+                    'result' => [],
+                    'errors' => ['Usuario ou senha inválido']
+                ];
+            }
+        }
         $this->generateOutput();
     }
 
