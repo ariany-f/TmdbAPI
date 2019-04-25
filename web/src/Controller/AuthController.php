@@ -163,7 +163,6 @@ class AuthController extends AppController
                 ];
             }
         }
-        $this->response->type('json');
         $this->generateOutput();
     }
 
