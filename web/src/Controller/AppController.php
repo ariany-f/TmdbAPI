@@ -834,7 +834,7 @@ class AppController extends Controller
         header('Content-Type: application/json');
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: POST, GET, PUT, PATCH, DELETE, OPTIONS');
-        header('Access-Control-Allow-Headers: *');
+        header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
         header('Access-Control-Allow-Credentials: true');
         header('Accept: application/json');
         http_response_code($this->code);
