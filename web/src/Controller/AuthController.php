@@ -167,7 +167,7 @@ class AuthController extends AppController
                 ];
             }
         }
-
+        $this->response->header('Access-Control-Allow-Origin', '*');
         $this->generateOutput();
     }
 
