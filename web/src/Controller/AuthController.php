@@ -62,7 +62,7 @@ class AuthController extends AppController
             $post[$row] = $this->checkFieldRequest($post, $row, true);
         }
 
-        if ($this->request->is('post'))
+        if ($this->request->is('options'))
         {
             $user = $this->Auth->identify();
 
