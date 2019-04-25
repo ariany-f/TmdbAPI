@@ -36,7 +36,7 @@ class AuthController extends AppController
     public function index()
     {
         $post = $this->request->input('json_decode', true);
-        $this->request->data($post);
+        $this->request->data = $post;
         if(!$post)
         {
             $this->message = 'Post inválido';
