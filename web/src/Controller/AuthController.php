@@ -30,7 +30,6 @@ class AuthController extends AppController
         ]);
     }
 
-
     /**
      * Trata requisicao method GET auth.json
      */
@@ -42,7 +41,7 @@ class AuthController extends AppController
         $this->data = [
             'count' => 1,
             'result' => [
-               'Para utilização contate o administrador'
+               'Para utilizaçãos contate o administrador'
             ],
             'erros' => [
 
@@ -62,7 +61,7 @@ class AuthController extends AppController
         $this->data = [
             'count' => 1,
             'result' => [
-                'Para utilização contate o administrador'
+                'Para utilização contatdse o administrador'
             ],
             'erros' => [
                 //
