@@ -15,10 +15,6 @@
 
 namespace App\Controller;
 
-header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-header('Access-Control-Allow-Methods: GET, POST, PUT');
-
 use Cake\Core\Configure;
 use Cake\Utility\Security;
 use Cake\ORM\TableRegistry;
@@ -167,7 +163,7 @@ class AuthController extends AppController
                 ];
             }
         }
-        $this->response->header('Access-Control-Allow-Origin', '*');
+        $this->response->type('json');
         $this->generateOutput();
     }
 
