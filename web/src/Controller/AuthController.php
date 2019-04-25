@@ -24,6 +24,11 @@ class AuthController extends AppController
     public function initialize()
     {
         parent::initialize();
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: POST, GET, PUT, PATCH, DELETE, OPTIONS');
+        header('Access-Control-Allow-Headers: *');
+        header('Access-Control-Allow-Credentials: true');
+        header('Accept: application/json');
         $this->Auth->allow([
             'index',
             'add'
