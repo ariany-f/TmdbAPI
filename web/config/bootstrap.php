@@ -66,7 +66,6 @@ use Cake\Utility\Security;
  * that changes from configuration that does not. This makes deployment simpler.
  */
 
-Plugin::load('Cors', ['bootstrap' => true, 'routes' => false]);
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, PUT, PATCH, DELETE, OPTIONS');
