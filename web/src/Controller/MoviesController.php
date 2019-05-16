@@ -81,7 +81,7 @@ class MoviesController extends AppController
      * Lista os filmes mais bem avaliados
      * @param $page
      */
-    public function top_rated($page = 1)
+    public function topRated($page = 1)
     {
         /** Define ambiente */
         $ambiente = Configure::read('service_mode');
