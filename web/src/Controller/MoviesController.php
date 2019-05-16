@@ -131,6 +131,61 @@ class MoviesController extends AppController
         $this->generateOutput();
     }
 
+     /**
+     * Lista os filmes mais bem avaliados
+     * @param $page
+     */
+    public function Popular($page = 1)
+    {
+        /** Define ambiente */
+        $ambiente = Configure::read('service_mode');
+
+        /**
+         * Post json decode
+         */
+        $post = $this->request->input('json_decode', true);
+        if(isset($post['request_id']))
+        {
+            $this->request_id = $post['request_id'];
+        }
+
+        $result = $this->Tmdb->getPopular($page);
+
+        /** Retirar na v2 */
+        /** Adicionar gênero ao filme */
+        $result['genres'] = $genres = $this->Tmdb->getGenres()['genres'];
+
+        foreach($result['results'] as $i => $movie) {
+                    
+            /** 
+             * Alterar url do poster do filme, 
+             * assim não é necessário adicionar 
+             * tal url do lado CLI 
+             * */
+            if(!empty($movie['poster_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['results'][$i]['poster_path'] = $url_original . $movie['poster_path'];
+            }
+
+            /** 
+             * Ajustar gêneros para exibição em texto dos mesmos 
+             * */
+            if(!empty($movie['genre_ids'])) {
+                foreach($movie['genre_ids'] as $genre_id) {
+                    $result['results'][$i]['genres'][] =  $genres[array_search($genre_id, array_column($genres, 'id'))]['name'];
+                }
+                unset( $result['results'][$i]['genre_ids']);
+            }
+        }
+        
+        $this->message = 'Lista de Filmes mais Populares';
+        $this->code = 200;
+        $this->success = true;
+        $this->data = $result;
+        $this->generateOutput();
+    }
+
+
     /**
      * Lista os generos disponiveis
      */

@@ -208,6 +208,37 @@ class TmdbComponent extends Component
         return $response;
     }
 
+    /**
+     * Pega os filmes mais populares
+     * @return array
+     * @throws \Exception
+     */
+    public function getPopular($page = 1)
+    {
+        $output = [
+            'data' => [],
+            'error' => [
+                12 => 'Serviço com falha, contate o administrador'
+            ]
+        ];
+
+        /**
+         * Converte params para metodo Tmdb
+         */
+        $parameters =  [
+            'method' => 'GET',
+            'endpoint' => 'movie/popular',
+            'vars' => [
+                'page' => $page
+            ]
+        ];
+
+        $this->sendRequest($parameters);
+        $response = $this->responseTmdb;
+
+        return $response;
+    }
+
      /**
      * Pegar todos os gêneros disponíveis
      * @return array
