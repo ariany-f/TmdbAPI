@@ -36,6 +36,21 @@ return [
         ],
     ],
 
+    'image_url' => [
+        'dev' => [
+            'original' => 'https://image.tmdb.org/t/p/original/',
+            'w500' => 'https://image.tmdb.org/t/p/w500/'
+        ],
+        'homolog' => [
+            'original' => 'https://image.tmdb.org/t/p/original/',
+            'w500' => 'https://image.tmdb.org/t/p/w500/'
+        ],
+        'production' => [
+            'original' => 'https://image.tmdb.org/t/p/original/',
+            'w500' => 'https://image.tmdb.org/t/p/w500/'
+        ]
+    ],
+
     'webservices' => [
         'tmdb' => [
             'dev' => [

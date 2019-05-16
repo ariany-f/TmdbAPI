@@ -52,8 +52,7 @@ class TmdbComponent extends Component
         'method' => 'GET',
         'endpoint' => 'movie/upcoming',
         'vars' => 'page=1'
-    ])
-    {
+    ]) {
         $ambiente = Configure::read('service_mode');
         $url = Configure::read('webservices')['tmdb'][$ambiente]['url'] . '/' . $parameters['endpoint'].'?api_key='.Configure::read('webservices')['tmdb'][$ambiente]['api_key'];
         $params = [];

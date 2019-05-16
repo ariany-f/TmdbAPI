@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Controller;
+
 use App\Controller\Component\TmdbComponent;
 use Cake\Event\Event;
+use Cake\Core\Configure;
 
 /**
  * Movies Controller
@@ -26,6 +29,9 @@ class MoviesController extends AppController
      */
     public function upcoming($page = 1)
     {
+        /** Define ambiente */
+        $ambiente = Configure::read('service_mode');
+
         /**
          * Post json decode
          */
@@ -36,8 +42,23 @@ class MoviesController extends AppController
         }
 
         $result = $this->Tmdb->getUpcoming($page);
+        
+        /** 
+         * Alterar url do poster do filme, 
+         * assim não é necessário adicionar 
+         * tal url do lado CLI 
+         * */
+        foreach($result as $movie) {
+            if(!empty($movie['poster_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $movie['poster_path'] = '' . $movie['poster_path'] . '.png';
+            }
+        }
+        
+        /** Adicionar gênero ao filme */
         $result['genres'] = $this->Tmdb->getGenres()['genres'];
         
+
         $this->message = 'Lista de Filmes';
         $this->code = 200;
         $this->success = true;
