@@ -309,6 +309,33 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->getMovies($page, $genre_id);
         
+        /** Retirar na v2 */
+        /** Adicionar gênero ao filme */
+        $result['genres'] = $genres = $this->Tmdb->getGenres()['genres'];
+
+        foreach($result['results'] as $i => $movie) {
+                    
+            /** 
+             * Alterar url do poster do filme, 
+             * assim não é necessário adicionar 
+             * tal url do lado CLI 
+             * */
+            if(!empty($movie['poster_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['results'][$i]['poster_path'] = $url_original . $movie['poster_path'];
+            }
+
+            /** 
+             * Ajustar gêneros para exibição em texto dos mesmos 
+             * */
+            if(!empty($movie['genre_ids'])) {
+                foreach($movie['genre_ids'] as $genre_id) {
+                    $result['results'][$i]['genres'][] =  $genres[array_search($genre_id, array_column($genres, 'id'))]['name'];
+                }
+                unset( $result['results'][$i]['genre_ids']);
+            }
+        }
+
         $this->message = 'Lista de Filmes';
         $this->code = 200;
         $this->success = true;
