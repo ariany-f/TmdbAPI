@@ -147,7 +147,7 @@ class TmdbComponent extends Component
     }
 
     /**
-     * Cria a assinatura
+     * Pega os próximos filmes
      * @return array
      * @throws \Exception
      */
@@ -166,6 +166,37 @@ class TmdbComponent extends Component
         $parameters =  [
             'method' => 'GET',
             'endpoint' => 'movie/upcoming',
+            'vars' => [
+                'page' => $page
+            ]
+        ];
+
+        $this->sendRequest($parameters);
+        $response = $this->responseTmdb;
+
+        return $response;
+    }
+
+    /**
+     * Pega os filmes mais bem avaliados
+     * @return array
+     * @throws \Exception
+     */
+    public function getTopRated($page = 1)
+    {
+        $output = [
+            'data' => [],
+            'error' => [
+                12 => 'Serviço com falha, contate o administrador'
+            ]
+        ];
+
+        /**
+         * Converte params para metodo Tmdb
+         */
+        $parameters =  [
+            'method' => 'GET',
+            'endpoint' => 'movie/top_rated',
             'vars' => [
                 'page' => $page
             ]
