@@ -97,9 +97,8 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->getTopRated($page);
 
-        /** Retirar na v2 */
         /** Adicionar gênero ao filme */
-        $result['genres'] = $genres = $this->Tmdb->getGenres()['genres'];
+        $genres = $this->Tmdb->getGenres()['genres'];
 
         foreach($result['results'] as $i => $movie) {
                     
@@ -151,9 +150,8 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->getPopular($page);
 
-        /** Retirar na v2 */
         /** Adicionar gênero ao filme */
-        $result['genres'] = $genres = $this->Tmdb->getGenres()['genres'];
+        $genres = $this->Tmdb->getGenres()['genres'];
 
         foreach($result['results'] as $i => $movie) {
                     
@@ -205,9 +203,8 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->getNowPlaying($page);
 
-        /** Retirar na v2 */
         /** Adicionar gênero ao filme */
-        $result['genres'] = $genres = $this->Tmdb->getGenres()['genres'];
+        $genres = $this->Tmdb->getGenres()['genres'];
 
         foreach($result['results'] as $i => $movie) {
                     
@@ -309,9 +306,8 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->getMovies($page, $genre_id);
         
-        /** Retirar na v2 */
         /** Adicionar gênero ao filme */
-        $result['genres'] = $genres = $this->Tmdb->getGenres()['genres'];
+       $genres = $this->Tmdb->getGenres()['genres'];
 
         foreach($result['results'] as $i => $movie) {
                     
