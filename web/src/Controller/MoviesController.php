@@ -290,6 +290,33 @@ class MoviesController extends AppController
     }
 
     /**
+     * Lista os filmes disponíveis
+     */
+    public function discover($page = 1, $genre_id = null)
+    {
+        
+        /** Define ambiente */
+        $ambiente = Configure::read('service_mode');
+
+        /**
+         * Post json decode
+         */
+        $post = $this->request->input('json_decode', true);
+        if(isset($post['request_id']))
+        {
+            $this->request_id = $post['request_id'];
+        }
+
+        $result = $this->Tmdb->getMovies($page, $genre_id);
+        
+        $this->message = 'Lista de Filmes';
+        $this->code = 200;
+        $this->success = true;
+        $this->data = $result;
+        $this->generateOutput();
+    }
+
+    /**
      * Procurar por titulo
      * @param null $query
      * @throws \Exception
