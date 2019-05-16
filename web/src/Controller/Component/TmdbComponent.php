@@ -238,6 +238,38 @@ class TmdbComponent extends Component
 
         return $response;
     }
+    
+    /**
+     * Pega os filmes em cartaz
+     * @return array
+     * @throws \Exception
+     */
+    public function getNowPlaying($page = 1)
+    {
+        $output = [
+            'data' => [],
+            'error' => [
+                12 => 'Serviço com falha, contate o administrador'
+            ]
+        ];
+
+        /**
+         * Converte params para metodo Tmdb
+         */
+        $parameters =  [
+            'method' => 'GET',
+            'endpoint' => 'movie/now_playing',
+            'vars' => [
+                'page' => $page
+            ]
+        ];
+
+        $this->sendRequest($parameters);
+        $response = $this->responseTmdb;
+
+        return $response;
+    }
+
 
      /**
      * Pegar todos os gêneros disponíveis
