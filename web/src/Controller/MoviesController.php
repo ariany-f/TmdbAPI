@@ -48,10 +48,10 @@ class MoviesController extends AppController
          * assim não é necessário adicionar 
          * tal url do lado CLI 
          * */
-        foreach($result as $movie) {
+        foreach($result as $i => $movie) {
             if(!empty($movie['poster_path'])) {
                 $url_original =  Configure::read('image_url')[$ambiente]['original'];
-                $movie['poster_path'] = '' . $movie['poster_path'] . '.png';
+                $result[$i]['poster_path'] = $url_original . $movie['poster_path'];
             }
         }
         
