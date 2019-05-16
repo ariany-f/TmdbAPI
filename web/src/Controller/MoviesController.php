@@ -286,7 +286,7 @@ class MoviesController extends AppController
             }
         }
         
-        $this->message = 'Lista de Filmes em Cartaz';
+        $this->message = 'Lista de Filmes mais Novos';
         $this->code = 200;
         $this->success = true;
         $this->data = $result;
