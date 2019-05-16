@@ -270,6 +270,37 @@ class TmdbComponent extends Component
         return $response;
     }
 
+    /**
+     * Pega os filmes em cartaz
+     * @return array
+     * @throws \Exception
+     */
+    public function getLatest($page = 1)
+    {
+        $output = [
+            'data' => [],
+            'error' => [
+                12 => 'Serviço com falha, contate o administrador'
+            ]
+        ];
+
+        /**
+         * Converte params para metodo Tmdb
+         */
+        $parameters =  [
+            'method' => 'GET',
+            'endpoint' => 'movie/latest',
+            'vars' => [
+                'page' => $page
+            ]
+        ];
+
+        $this->sendRequest($parameters);
+        $response = $this->responseTmdb;
+
+        return $response;
+    }
+
 
      /**
      * Pegar todos os gêneros disponíveis
