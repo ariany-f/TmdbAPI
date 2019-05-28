@@ -396,6 +396,9 @@ class MoviesController extends AppController
      */
     public function detail($id = null)
     {
+        /** Define ambiente */
+        $ambiente = Configure::read('service_mode');
+        
        /**
          * Post json decode
          */
@@ -407,6 +410,16 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->detail($id);
         
+        if(!empty($result['poster_path'])) {
+            $url_original =  Configure::read('image_url')[$ambiente]['original'];
+            $result['poster_path'] = $url_original . $result['poster_path'];
+        }
+
+        if(!empty($result['backdrop_path'])) {
+            $url_original =  Configure::read('image_url')[$ambiente]['original'];
+            $result['backdrop_path'] = $url_original . $result['backdrop_path'];
+        }
+
         $this->message = 'Detalhes do Filme';
         $this->code = 200;
         $this->success = true;
