@@ -422,4 +422,34 @@ class TmdbComponent extends Component
 
         return $response;
     }
+
+    
+     /**
+     * Pegar todas as linguagens disponíveis
+     * @return array
+     * @throws \Exception
+     */
+    public function getLanguages()
+    {
+        $output = [
+            'data' => [],
+            'error' => [
+                12 => 'Serviço com falha, contate o administrador'
+            ]
+        ];
+
+        /**
+         * Converte params para metodo Tmdb
+         */
+        $parameters =  [
+            'method' => 'GET',
+            'endpoint' => 'configuration/languages',
+            'vars' => []
+        ];
+
+        $this->sendRequest($parameters);
+        $response = $this->responseTmdb;
+
+        return $response;
+    }
 }

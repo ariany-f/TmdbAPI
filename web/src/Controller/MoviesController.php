@@ -307,6 +307,29 @@ class MoviesController extends AppController
     }
 
     /**
+     * Lista os generos disponiveis
+     */
+    public function languages()
+    {
+        /**
+         * Post json decode
+         */
+        $post = $this->request->input('json_decode', true);
+        if(isset($post['request_id']))
+        {
+            $this->request_id = $post['request_id'];
+        }
+
+        $result = $this->Tmdb->getLanguages();
+        
+        $this->message = 'Lista de Linguagens';
+        $this->code = 200;
+        $this->success = true;
+        $this->data = $result;
+        $this->generateOutput();
+    }
+
+    /**
      * Lista os filmes disponíveis
      */
     public function discover($page = 1, $genre_id = null)
