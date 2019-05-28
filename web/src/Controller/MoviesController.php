@@ -164,7 +164,7 @@ class MoviesController extends AppController
         $genres = $this->Tmdb->getGenres()['genres'];
 
         /** Adicionar linguagem ao filme */
-        $language = $this->Tmdb->getLanguage();
+        $language = $this->Tmdb->getLanguages();
 
         foreach($result['results'] as $i => $movie) {
                     
