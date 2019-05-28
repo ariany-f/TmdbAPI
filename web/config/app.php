@@ -38,16 +38,43 @@ return [
 
     'image_url' => [
         'dev' => [
-            'original' => 'https://image.tmdb.org/t/p/original',
-            'w500' => 'https://image.tmdb.org/t/p/w500'
+            'original' => 'https://image.tmdb.org/t/p/original',// [backdrop_sizes, logo_sizes, poster_sizes, profile_sizes, still_sizes]
+            'w500' => 'https://image.tmdb.org/t/p/w500',        // [logo_sizes, poster_sizes]
+            'w300' => 'https://image.tmdb.org/t/p/w300',        // [backdrop_sizes, logo_sizes, still_sizes]
+            'w780' => 'https://image.tmdb.org/t/p/w780',        // [backdrop_sizes, poster_sizes]
+            'w1280' => 'https://image.tmdb.org/t/p/w1280',      // [backdrop_sizes]
+            'w45' => 'https://image.tmdb.org/t/p/w45',          // [logo_sizes, profile_sizes]
+            'w92' => 'https://image.tmdb.org/t/p/w92',          // [logo_sizes, poster_sizes, still_sizes]
+            'w154' => 'https://image.tmdb.org/t/p/w154',        // [logo_sizes, poster_sizes]
+            'w185' => 'https://image.tmdb.org/t/p/w185',        // [logo_sizes, poster_sizes, profile_sizes, still_sizes]
+            'w342' => 'https://image.tmdb.org/t/p/w342',        // [poster_sizes]
+            'h632' => 'https://image.tmdb.org/t/p/h632'         // [profile_sizes]
         ],
         'homolog' => [
-            'original' => 'https://image.tmdb.org/t/p/original',
-            'w500' => 'https://image.tmdb.org/t/p/w500'
+            'original' => 'https://image.tmdb.org/t/p/original',// [backdrop_sizes, logo_sizes, poster_sizes, profile_sizes, still_sizes]
+            'w500' => 'https://image.tmdb.org/t/p/w500',        // [logo_sizes, poster_sizes]
+            'w300' => 'https://image.tmdb.org/t/p/w300',        // [backdrop_sizes, logo_sizes, still_sizes]
+            'w780' => 'https://image.tmdb.org/t/p/w780',        // [backdrop_sizes, poster_sizes]
+            'w1280' => 'https://image.tmdb.org/t/p/w1280',      // [backdrop_sizes]
+            'w45' => 'https://image.tmdb.org/t/p/w45',          // [logo_sizes, profile_sizes]
+            'w92' => 'https://image.tmdb.org/t/p/w92',          // [logo_sizes, poster_sizes, still_sizes]
+            'w154' => 'https://image.tmdb.org/t/p/w154',        // [logo_sizes, poster_sizes]
+            'w185' => 'https://image.tmdb.org/t/p/w185',        // [logo_sizes, poster_sizes, profile_sizes, still_sizes]
+            'w342' => 'https://image.tmdb.org/t/p/w342',        // [poster_sizes]
+            'h632' => 'https://image.tmdb.org/t/p/h632'         // [profile_sizes]
         ],
         'production' => [
-            'original' => 'https://image.tmdb.org/t/p/original',
-            'w500' => 'https://image.tmdb.org/t/p/w500'
+            'original' => 'https://image.tmdb.org/t/p/original',// [backdrop_sizes, logo_sizes, poster_sizes, profile_sizes, still_sizes]
+            'w500' => 'https://image.tmdb.org/t/p/w500',        // [logo_sizes, poster_sizes]
+            'w300' => 'https://image.tmdb.org/t/p/w300',        // [backdrop_sizes, logo_sizes, still_sizes]
+            'w780' => 'https://image.tmdb.org/t/p/w780',        // [backdrop_sizes, poster_sizes]
+            'w1280' => 'https://image.tmdb.org/t/p/w1280',      // [backdrop_sizes]
+            'w45' => 'https://image.tmdb.org/t/p/w45',          // [logo_sizes, profile_sizes]
+            'w92' => 'https://image.tmdb.org/t/p/w92',          // [logo_sizes, poster_sizes, still_sizes]
+            'w154' => 'https://image.tmdb.org/t/p/w154',        // [logo_sizes, poster_sizes]
+            'w185' => 'https://image.tmdb.org/t/p/w185',        // [logo_sizes, poster_sizes, profile_sizes, still_sizes]
+            'w342' => 'https://image.tmdb.org/t/p/w342',        // [poster_sizes]
+            'h632' => 'https://image.tmdb.org/t/p/h632'         // [profile_sizes]
         ]
     ],
 

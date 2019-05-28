@@ -59,6 +59,11 @@ class MoviesController extends AppController
                 $result['results'][$i]['poster_path'] = $url_original . $movie['poster_path'];
             }
 
+            if(!empty($movie['backdrop_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['results'][$i]['backdrop_path'] = $url_original . $movie['backdrop_path'];
+            }
+
             /** 
              * Ajustar gêneros para exibição em texto dos mesmos 
              * */
@@ -110,6 +115,11 @@ class MoviesController extends AppController
             if(!empty($movie['poster_path'])) {
                 $url_original =  Configure::read('image_url')[$ambiente]['original'];
                 $result['results'][$i]['poster_path'] = $url_original . $movie['poster_path'];
+            }
+
+            if(!empty($movie['backdrop_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['results'][$i]['backdrop_path'] = $url_original . $movie['backdrop_path'];
             }
 
             /** 
@@ -165,6 +175,11 @@ class MoviesController extends AppController
                 $result['results'][$i]['poster_path'] = $url_original . $movie['poster_path'];
             }
 
+            if(!empty($movie['backdrop_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['results'][$i]['backdrop_path'] = $url_original . $movie['backdrop_path'];
+            }
+
             /** 
              * Ajustar gêneros para exibição em texto dos mesmos 
              * */
@@ -216,6 +231,11 @@ class MoviesController extends AppController
             if(!empty($movie['poster_path'])) {
                 $url_original =  Configure::read('image_url')[$ambiente]['original'];
                 $result['results'][$i]['poster_path'] = $url_original . $movie['poster_path'];
+            }
+
+            if(!empty($movie['backdrop_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['results'][$i]['backdrop_path'] = $url_original . $movie['backdrop_path'];
             }
 
             /** 
@@ -319,6 +339,11 @@ class MoviesController extends AppController
             if(!empty($movie['poster_path'])) {
                 $url_original =  Configure::read('image_url')[$ambiente]['original'];
                 $result['results'][$i]['poster_path'] = $url_original . $movie['poster_path'];
+            }
+
+            if(!empty($movie['backdrop_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['results'][$i]['backdrop_path'] = $url_original . $movie['backdrop_path'];
             }
 
             /** 
