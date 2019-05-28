@@ -163,6 +163,9 @@ class MoviesController extends AppController
         /** Adicionar gênero ao filme */
         $genres = $this->Tmdb->getGenres()['genres'];
 
+        /** Adicionar linguagem ao filme */
+        $language = $this->Tmdb->getLanguage();
+
         foreach($result['results'] as $i => $movie) {
                     
             /** 
@@ -188,6 +191,14 @@ class MoviesController extends AppController
                     $result['results'][$i]['genres'][] =  $genres[array_search($genre_id, array_column($genres, 'id'))]['name'];
                 }
                 unset( $result['results'][$i]['genre_ids']);
+            }
+
+             /** 
+             * Ajustar linguagem para exibição em texto da mesma
+             * */
+            if(!empty($movie['original_language'])) {
+                
+                $result['results'][$i]['original_language'] =  $language[array_search($movie['original_language'], array_column($language, 'iso_639_1'))]['name'];
             }
         }
         
