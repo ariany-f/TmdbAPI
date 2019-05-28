@@ -472,7 +472,7 @@ class MoviesController extends AppController
             $this->request_id = $post['request_id'];
         }
 
-        $result = $this->Tmdb->movieCredits($query);
+        $result = $this->Tmdb->movieCredits($id);
         
         $this->message = 'Créditos do Filme';
         $this->code = 200;
