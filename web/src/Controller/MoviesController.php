@@ -465,7 +465,7 @@ class MoviesController extends AppController
     { 
         /** Define ambiente */
         $ambiente = Configure::read('service_mode');
-        
+
        /**
          * Post json decode
          */
@@ -477,10 +477,19 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->movieCredits($id);
 
+        /** Fotos do elenco com url */
         foreach($result['cast'] as $i => $cast) {
             if(!empty($cast['profile_path'])) {
                 $url_original =  Configure::read('image_url')[$ambiente]['original'];
                 $result['cast'][$i]['profile_path'] = $url_original . $cast['profile_path'];
+            }
+        }
+
+        /** Fotos da produção com url */
+        foreach($result['crew'] as $i => $crew) {
+            if(!empty($crew['profile_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['crew'][$i]['profile_path'] = $url_original . $crew['profile_path'];
             }
         }
         
