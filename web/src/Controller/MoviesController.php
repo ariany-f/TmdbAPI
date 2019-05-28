@@ -523,7 +523,7 @@ class MoviesController extends AppController
 
         foreach($result['results'] as $i => $video) {
             if($video['site'] == "YouTube") {
-                $result['results'][$i]['url'] = 'https://www.youtube.com/watch?v=' . $video['SUXWAEX2jlg'];
+                $result['results'][$i]['url'] = 'https://www.youtube.com/watch?v=' . $video['key'];
             }
             else {
                 $result['results'][$i]['url'] = null;
