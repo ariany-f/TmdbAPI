@@ -473,6 +473,13 @@ class MoviesController extends AppController
         }
 
         $result = $this->Tmdb->movieCredits($id);
+
+        foreach($result['cast'] as $i => $cast) {
+            if(!empty($cast['profile_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['cast'][$i]['profile_path'] = $url_original . $cast['profile_path'];
+            }
+        }
         
         $this->message = 'Créditos do Filme';
         $this->code = 200;
