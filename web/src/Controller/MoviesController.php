@@ -519,6 +519,9 @@ class MoviesController extends AppController
             $this->request_id = $post['request_id'];
         }
 
+        /** Adicionar linguagem ao filme */
+        $language = $this->Tmdb->getLanguages();
+
         $result = $this->Tmdb->detail($id);
         
         if(!empty($result['poster_path'])) {
@@ -529,6 +532,11 @@ class MoviesController extends AppController
         if(!empty($result['backdrop_path'])) {
             $url_original =  Configure::read('image_url')[$ambiente]['original'];
             $result['backdrop_path'] = $url_original . $result['backdrop_path'];
+        }
+
+        /** Linguagem por extenso */
+        if(!empty($result['original_language'])) {
+            $result['original_language'] =  $language[array_search($result['original_language'], array_column($language, 'iso_639_1'))]['name'];
         }
 
         /** Empresas produtoras */
