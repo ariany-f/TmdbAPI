@@ -586,7 +586,7 @@ class MoviesController extends AppController
 
          /** Tempo total de filme por extenso */
          if(!empty($result['runtime'])) {
-            $result['runtime'] = convertToHoursMins($result['runtime'], '%02d hours %02d minutes'); // should output 4 hours 17 minutes;
+            $result['runtime'] = $this->Utils->convertToHoursMins($result['runtime'], '%02d hours %02d minutes'); // should output 4 hours 17 minutes;
         }
 
         $this->message = 'Detalhes do Filme';
