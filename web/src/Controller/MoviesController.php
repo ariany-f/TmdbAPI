@@ -521,7 +521,11 @@ class MoviesController extends AppController
 
         $result = $this->Tmdb->movieVideos($id);
 
-        //https://www.youtube.com/watch?v=$id
+        foreach($result['results'] as $i => $video) {
+            if($video['site'] == "Youtube") {
+                $result['results'][$i]['url'] = 'https://www.youtube.com/watch?v=' . $video['id'];
+            }
+        }
 
         $this->message = 'Videos do Filme';
         $this->code = 200;
