@@ -398,7 +398,7 @@ class MoviesController extends AppController
     {
         /** Define ambiente */
         $ambiente = Configure::read('service_mode');
-        
+
        /**
          * Post json decode
          */
@@ -418,6 +418,14 @@ class MoviesController extends AppController
         if(!empty($result['backdrop_path'])) {
             $url_original =  Configure::read('image_url')[$ambiente]['original'];
             $result['backdrop_path'] = $url_original . $result['backdrop_path'];
+        }
+
+        /** Empresas produtoras */
+        foreach($result['production_companies'] as $i => $production_companies) {
+            if(!empty($production_companies['logo_path'])) {
+                $url_original =  Configure::read('image_url')[$ambiente]['original'];
+                $result['production_companies'][$i]['logo_path'] = $url_original . $production_companies['logo_path'];
+            }
         }
 
         $this->message = 'Detalhes do Filme';
