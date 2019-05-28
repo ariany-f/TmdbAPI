@@ -457,6 +457,31 @@ class MoviesController extends AppController
     }
 
      /**
+     * Créditos por filme
+     * @param null $query
+     * @throws \Exception
+     */
+    public function movieCredits($id = null)
+    {
+       /**
+         * Post json decode
+         */
+        $post = $this->request->input('json_decode', true);
+        if(isset($post['request_id']))
+        {
+            $this->request_id = $post['request_id'];
+        }
+
+        $result = $this->Tmdb->movieCredits($query);
+        
+        $this->message = 'Créditos do Filme';
+        $this->code = 200;
+        $this->success = true;
+        $this->data = $result;
+        $this->generateOutput();
+    }
+
+     /**
      * Requisitar detalhes do Filme
      * @param null $id
      * @throws \Exception
