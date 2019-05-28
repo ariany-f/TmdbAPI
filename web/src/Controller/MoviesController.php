@@ -462,7 +462,10 @@ class MoviesController extends AppController
      * @throws \Exception
      */
     public function movieCredits($id = null)
-    {
+    { 
+        /** Define ambiente */
+        $ambiente = Configure::read('service_mode');
+        
        /**
          * Post json decode
          */
