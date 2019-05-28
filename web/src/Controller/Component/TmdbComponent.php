@@ -423,6 +423,33 @@ class TmdbComponent extends Component
         return $response;
     }
 
+     /**
+     * Retorna videos para o filme determinado
+     * O parametro a pesquisar será o $id
+     * @param String $id
+     * @return mixed boolean|array
+     */
+    public function movieVideos($id)
+    {
+        $output = [
+            'data' => [],
+            'error' => [
+                12 => 'Serviço com falha, contate o administrador'
+            ]
+        ];
+        
+        $parameters =  [
+            'method' => 'GET',
+            'endpoint' => 'movie/' . $id . '/videos',
+            'vars' => []
+        ];
+
+        $this->sendRequest($parameters);
+        $response = $this->responseTmdb;
+
+        return $response;
+    }
+
     /**
      * Retorna detalhes do filme
      * O parametro a pesquisar será o $id

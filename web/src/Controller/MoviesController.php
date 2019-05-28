@@ -500,6 +500,36 @@ class MoviesController extends AppController
         $this->generateOutput();
     }
 
+    /**
+     * Videos por filme
+     * @param null $query
+     * @throws \Exception
+     */
+    public function movieVideos($id = null)
+    { 
+        /** Define ambiente */
+        $ambiente = Configure::read('service_mode');
+
+       /**
+         * Post json decode
+         */
+        $post = $this->request->input('json_decode', true);
+        if(isset($post['request_id']))
+        {
+            $this->request_id = $post['request_id'];
+        }
+
+        $result = $this->Tmdb->movieVideos($id);
+
+        //https://www.youtube.com/watch?v=$id
+
+        $this->message = 'Videos do Filme';
+        $this->code = 200;
+        $this->success = true;
+        $this->data = $result;
+        $this->generateOutput();
+    }
+
      /**
      * Requisitar detalhes do Filme
      * @param null $id
